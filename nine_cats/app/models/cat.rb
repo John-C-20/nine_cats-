@@ -41,4 +41,8 @@ class Cat < ApplicationRecord
         end 
     end
 
+    has_many :cat_rentals, dependent: destroy
+    foreign_key: :cat_id,
+    class_name: :CatRentalRequest
+
 end

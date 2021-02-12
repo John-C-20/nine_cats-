@@ -30,9 +30,17 @@ def create
 end
 
 def edit
+    @cat = Cat.find_by(id: params[:id])
+    render :edit 
 end
 
 def update
+    @cat = Cat.find_by(id: params[:id])
+    if @cat.update(cat_params)
+        render :show 
+    else
+        redirect_to edit_cat_url
+    end
 end
 
 
